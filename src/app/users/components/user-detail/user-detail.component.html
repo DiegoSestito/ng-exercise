@@ -1,0 +1,24 @@
+<div class="app-content">
+  <div class="header">
+    <div class="action-btn">
+      <button class="app-btn" (click)="back()">Back</button>
+    </div>
+    <h1>User details</h1>
+  </div>
+
+  <div class="details-container">
+    <div class="user-details" *ngIf="user$ | async as user">
+      <img src="{{ user.avatar }}" />
+      <div class="user-info">
+        <div>
+          <label>Name: </label>
+          <span>{{ user.first_name }} {{ user.last_name }} </span>
+        </div>
+        <div>
+          <label>Email: </label>
+          <span>{{ user.email }} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

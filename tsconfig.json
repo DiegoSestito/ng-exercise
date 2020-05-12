@@ -16,5 +16,6 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "include": ["**/*.ts", "./src/app/users/users.module.ts"]
 }

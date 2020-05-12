@@ -1,0 +1,15 @@
+<div class="app-content">
+  <div class="header">
+    <h1>User List</h1>
+  </div>
+
+  <div class="user-list-container">
+    <div class="user-list">
+      <ul>
+        <li (click)="details(user.id)" *ngFor="let user of usersList$ | async">
+          {{ user.first_name }} {{ user.last_name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
