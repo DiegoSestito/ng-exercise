@@ -7,7 +7,7 @@
     <div class="user-list">
       <ul>
         <li (click)="details(user.id)" *ngFor="let user of usersList$ | async">
-          {{ user.first_name }} {{ user.last_name }}
+          {{ user.firstName }} {{ user.lastName }}
         </li>
       </ul>
     </div>

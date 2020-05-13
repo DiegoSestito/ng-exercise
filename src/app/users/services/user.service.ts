@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserList } from '../models/user.model';
 import { Observable } from 'rxjs';
 import { tap, map, shareReplay } from 'rxjs/operators';
+import { UserRequest } from '../models/user-request.model';
+import { UserList } from '../models/user-list.model';
+import { UserDetails } from '../models/user-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +16,14 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   public getUsersList(page: number): Observable<Array<UserList>> {
-    return this.http.get<any>(`${this.LIST_URL}?page=${page}`).pipe(
-      tap((v) => console.log(v)),
-      map((v) => v.data),
-      tap((v) => console.log(v))
-    );
+    return this.http
+      .get<UserRequest>(`${this.LIST_URL}?page=${page}`)
+      .pipe(map((v) => v.data.map((u) => new UserList(u))));
   }
 
-  public getUserDetails(id: number): any {
+  public getUserDetails(id: number): Observable<UserDetails> {
     return this.http
-      .get<any>(`${this.DETAILS_URL}/${id}`)
+      .get<UserRequest>(`${this.DETAILS_URL}/${id}`)
       .pipe(map((v) => v.data));
   }
 }

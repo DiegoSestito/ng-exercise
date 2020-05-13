@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { EMPTY, Observable, combineLatest } from 'rxjs';
-import { UserList } from '../../models/user.model';
 import { map } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserList } from '../../models/user-list.model';
 
 @Component({
   selector: 'app-users-list',
